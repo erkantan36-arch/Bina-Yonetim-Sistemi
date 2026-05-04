@@ -1,0 +1,278 @@
+﻿@model BinaDaireYonetim.Models.Daire
+
+@{
+    ViewData["Title"] = "Daire Düzenle";
+}
+
+<div class="container-fluid mt-5">
+    <h1>Daire = No @Model.DaireNo</h1>
+    <hr />
+
+    <div class="row">
+        <!-- SOL TARAF (Grid 8) - Daire Bilgileri -->
+        <div class="col-md-8">
+            <!-- Kat Maliki Bölümü -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Kat Maliki</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model?.KatMalikleri?.Any(k => k.AktifMi) ?? false)
+                    {
+                        var aktivKatMaliki = Model.KatMalikleri.FirstOrDefault(k => k.AktifMi);
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="mb-0"><strong>@aktivKatMaliki?.Ad</strong></p>
+                                <small class="text-muted">Telefon: @aktivKatMaliki?.Telefon</small>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ⋮ İşlemler
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="alert('Yer değiştir')">Kat Maliki İle Kiracıyı Yer Değiştir</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="alert('Yeni ata')">Yeni Kat Maliki Ata</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Kat Maliki Atanmamış</p>
+                        <button class="btn btn-sm btn-primary" onclick="alert('Kat Maliki atama formu açılacak')">Kat Maliki Ata</button>
+                    }
+                </div>
+            </div>
+
+            <!-- Kiracı Bölümü -->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Kiracı</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model?.Kiracıları?.Any(k => k.AktifMi) ?? false)
+                    {
+                        var aktivKiracı = Model.Kiracıları.FirstOrDefault(k => k.AktifMi);
+                        <p><strong>@aktivKiracı?.Ad</strong> - <small class="text-muted">@aktivKiracı?.Telefon</small></p>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Kiracı Atanmamış</p>
+                        <button class="btn btn-sm btn-info" onclick="alert('Kiracı atama formu açılacak')">Kiracı Ata</button>
+                    }
+                </div>
+            </div>
+
+            <!-- Hesaplar Bölümü -->
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Hesaplar</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model?.Hesaplar?.Any() ?? false)
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Giriş</th>
+                                        <th>Çıkış</th>
+                                        <th>Hesap Adı</th>
+                                        <th>Tipi</th>
+                                        <th>Bakiye</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var hesap in Model.Hesaplar)
+                                    {
+                                        var toplamGiris = hesap.Islemler?.Where(i => i.Tipi == "Giriş").Sum(i => i.Tutar) ?? 0;
+                                        var toplamCikis = hesap.Islemler?.Where(i => i.Tipi == "Çıkış").Sum(i => i.Tutar) ?? 0;
+                                        <tr>
+                                            <td>@toplamGiris.ToString("C")</td>
+                                            <td>@toplamCikis.ToString("C")</td>
+                                            <td>@hesap.HesapAdi</td>
+                                            <td>@hesap.HesapTipi</td>
+                                            <td><strong>@hesap.Bakiye.ToString("C")</strong></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-info mt-3">
+                            <strong>Daire Toplam Bakiyesi:</strong>
+                            <span class="badge bg-primary">@(Model.Hesaplar.Sum(h => h.Bakiye)).ToString("C")</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">
+                            Daireye bağlı hesap kaydı bulunamadı.
+                        </div>
+                    }
+  
+                </div>
+            </div>
+        </div>
+
+        <!-- SAĞ TARAF (Grid 4) - İşlemler -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Diğer İşlemler</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary" onclick="alert('Yeni Kat Maliki formu açılacak')">
+                            <i class="bi bi-person-plus"></i> Yeni Kat Maliki
+                        </button>
+                        <button class="btn btn-outline-info" onclick="alert('Yeni Kiracı formu açılacak')">
+                            <i class="bi bi-person-plus"></i> Yeni Kiracı
+                        </button>
+                        <button class="btn btn-outline-success" onclick="alert('Kopyala işlemi')">
+                            <i class="bi bi-files"></i> Kopyala
+                        </button>
+                        <button class="btn btn-outline-warning" onclick="alert('Düzenleme formu açılacak')">
+                            <i class="bi bi-pencil"></i> Düzenle
+                        </button>
+                        <button class="btn btn-outline-danger" onclick="alert('Silme onayı')">
+                            <i class="bi bi-trash"></i> Sil
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temel Bilgiler -->
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Temel Bilgiler</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="BinaId" />
+                        <input type="hidden" asp-for="OlusturmaTarihi" />
+
+                        <div class="mb-3">
+                            <label asp-for="DaireNo" class="form-label">Daire No</label>
+                            <input asp-for="DaireNo" class="form-control" readonly />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DaireTipi" class="form-label">Daire Tipi</label>
+                            <select asp-for="DaireTipi" class="form-control">
+                                <option value="Standart Daire">Standart Daire</option>
+                                <option value="Lüks Daire">Lüks Daire</option>
+                                <option value="Stüdyo">Stüdyo</option>
+                                <option value="Penthouse">Penthouse</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Kat" class="form-label">Kat</label>
+                            <input asp-for="Kat" type="number" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="PetekSayisi" class="form-label">Petek Sayısı</label>
+                            <input asp-for="PetekSayisi" type="number" class="form-control" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV-TAB (Notlar ve Geçmiş) -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="notlar-tab" data-bs-toggle="tab" data-bs-target="#notlar" type="button" role="tab" aria-controls="notlar" aria-selected="true">
+                        📝 Notlar
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="gecmis-tab" data-bs-toggle="tab" data-bs-target="#gecmis" type="button" role="tab" aria-controls="gecmis" aria-selected="false">
+                        📋 Geçmiş
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <!-- NOTLAR SEKMESİ -->
+                <div class="tab-pane fade show active" id="notlar" role="tabpanel" aria-labelledby="notlar-tab">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Not ekleyin..."></textarea>
+                            </div>
+                            <button class="btn btn-primary">Not Ekle</button>
+                            <button class="btn btn-secondary">Evrak Ekle</button>
+                            <button class="btn btn-warning">Hatırlatma Ayarla</button>
+                        </div>
+                    </div>
+
+                    @if (Model?.Notlar?.Any() ?? false)
+                    {
+                        <div class="mt-3">
+                            @foreach (var not in Model.Notlar.OrderByDescending(n => n.OlusturmaTarihi))
+                            {
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <p>@not.Icerik</p>
+                                        <small class="text-muted">
+                                            @not.OlusturmaTarihi.ToString("dd.MM.yyyy HH:mm") - @not.OlusturanKullanici
+                                            @if (not.Hatirlatma)
+                                            {
+                                                <span class="badge bg-warning">⏰ Hatırlatma</span>
+                                            }
+                                        </small>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <!-- GEÇMİŞ SEKMESİ -->
+                <div class="tab-pane fade" id="gecmis" role="tabpanel" aria-labelledby="gecmis-tab">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            @if (Model?.Gecmisler?.Any() ?? false)
+                            {
+                                <ul class="list-unstyled">
+                                    @foreach (var gecmis in Model.Gecmisler.OrderByDescending(g => g.Tarih))
+                                    {
+                                        <li class="mb-2 pb-2 border-bottom">
+                                            <strong>@gecmis.Islem</strong>
+                                            <br />
+                                            <small class="text-muted">@gecmis.Tarih.ToString("dd.MM.yyyy HH:mm") - @gecmis.KullaniciAdi</small>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted">Geçmiş kaydı bulunmamaktadır.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Geri Dön Butonu -->
+    <div class="mt-4 mb-4">
+        <a asp-controller="Bina" asp-action="Details" asp-route-id="@Model?.BinaId" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Geri Dön
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

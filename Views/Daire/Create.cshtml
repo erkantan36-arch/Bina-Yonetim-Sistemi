@@ -1,0 +1,67 @@
+﻿@model BinaDaireYonetim.Models.Daire
+
+@{
+    ViewData["Title"] = "Yeni Daire Ekle";
+    int binaId = Convert.ToInt32(ViewData["BinaId"] ?? 0);
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+
+            <form asp-action="Create" asp-route-binaId="@binaId" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="BinaId" value="@binaId" />
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="DaireNo" class="form-label">Daire No *</label>
+                    <input asp-for="DaireNo" class="form-control" placeholder="Örn: 01, 02, 101" required />
+                    <span asp-validation-for="DaireNo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DaireTipi" class="form-label">Daire Tipi *</label>
+                    <select asp-for="DaireTipi" class="form-control" required>
+                        <option value="">-- Seçiniz --</option>
+                        <option value="Standart Daire">Standart Daire</option>
+                        <option value="Lüks Daire">Lüks Daire</option>
+                        <option value="Stüdyo">Stüdyo</option>
+                        <option value="Penthouse">Penthouse</option>
+                    </select>
+                    <span asp-validation-for="DaireTipi" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Kat" class="form-label">Kat *</label>
+                            <input asp-for="Kat" type="number" class="form-control" min="0" required />
+                            <span asp-validation-for="Kat" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="PetekSayisi" class="form-label">Petek Sayısı *</label>
+                            <input asp-for="PetekSayisi" type="number" class="form-control" min="1" required />
+                            <span asp-validation-for="PetekSayisi" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <a asp-action="Index" asp-route-binaId="@binaId" class="btn btn-secondary">İptal</a>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

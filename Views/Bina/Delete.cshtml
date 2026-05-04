@@ -1,0 +1,61 @@
+﻿@model BinaDaireYonetim.Models.Bina
+
+@{
+    ViewData["Title"] = "Binayı Sil";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Silme Onayı</h1>
+            <hr />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (Model.Daireler.Any())
+            {
+                <div class="alert alert-danger">
+                    <strong>Uyarı!</strong> Bu binada <strong>@Model.Daireler.Count() daire</strong> bulunmaktadır.
+                    <br />
+                    Binayı silmek için önce tüm daireleri silmelisiniz.
+                </div>
+
+                <div class="mb-3">
+                    <h4>Binada Bulunan Daireler:</h4>
+                    <ul class="list-group">
+                        @foreach (var daire in Model.Daireler)
+                        {
+                            <li class="list-group-item">
+                                <strong>@daire.DaireNo</strong> - @daire.Kat. Kat - @daire.DaireTipi - Petek: @daire.PetekSayisi
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="mb-3">
+                    <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+                </div>
+            }
+            else
+            {
+                <p>
+                    <strong>@Model.Ad</strong> adlı binayı silmek istediğinizden emin misiniz?
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Adres:</strong> @Model.Adres</p>
+                        <p><strong>Kat Sayısı:</strong> @Model.KatSayisi</p>
+                        <p><strong>İnşaat Tarihi:</strong> @Model.InşaatTarihi.ToString("dd.MM.yyyy")</p>
+                    </div>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                </form>
+            }
+        </div>
+    </div>
+</div>

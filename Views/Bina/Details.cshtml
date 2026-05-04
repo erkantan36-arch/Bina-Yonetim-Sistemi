@@ -1,0 +1,81 @@
+﻿@model BinaDaireYonetim.Models.Bina
+
+@{
+    ViewData["Title"] = "Bina Detayları";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1>@Model.Ad</h1>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Adres:</strong> @Model.Adres</p>
+                    <p><strong>Kat Sayısı:</strong> @Model.KatSayisi</p>
+                    <p><strong>İnşaat Tarihi:</strong> @Model.InşaatTarihi.ToString("dd.MM.yyyy")</p>
+                    <p><strong>Oluşturma Tarihi:</strong> @Model.OlusturmaTarihi.ToString("dd.MM.yyyy HH:mm")</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-info">
+                        <strong>Toplam Daire Sayısı:</strong> <span class="badge bg-primary">@Model.Daireler.Count()</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Daireler</h3>
+                    <a asp-controller="Daire" asp-action="Index" asp-route-binaId="@Model.Id" class="btn btn-primary btn-sm">
+                        <i class="bi bi-door-open"></i> Daireleri Yönet
+                    </a>
+                </div>
+
+                @if (Model.Daireler.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Daire No</th>
+                                    <th>Daire Tipi</th>
+                                    <th>Kat</th>
+                                    <th>Petek Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var daire in Model.Daireler)
+                                {
+                                    <tr>
+                                        <td>@daire.DaireNo</td>
+                                        <td>@daire.DaireTipi</td>
+                                        <td>@daire.Kat</td>
+                                        <td>@daire.PetekSayisi</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        Bu binada henüz daire bulunmamaktadır.
+                        <a asp-controller="Daire" asp-action="Create" asp-route-binaId="@Model.Id">Yeni daire ekleyin</a>
+                    </div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                    <i class="bi bi-pencil"></i> Düzenle
+                </a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Sil
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
