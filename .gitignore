@@ -1,0 +1,18 @@
+## Build artifacts
+bin/
+obj/
+
+## SQLite database files
+*.db
+*.db-shm
+*.db-wal
+
+## User-specific files
+*.user
+*.suo
+.vs/
+
+## Publish artifacts
+publish/
+
+## dotnet-ef tools
