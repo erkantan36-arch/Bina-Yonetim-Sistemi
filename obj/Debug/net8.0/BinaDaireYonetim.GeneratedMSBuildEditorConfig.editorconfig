@@ -1,5 +1,7 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -9,77 +11,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BinaDaireYonetim
 build_property.RootNamespace = BinaDaireYonetim
-build_property.ProjectDir = D:\asp_proje\BinaDaireYonetim\BinaDaireYonetim\
+build_property.ProjectDir = /home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\asp_proje\BinaDaireYonetim\BinaDaireYonetim
+build_property.MSBuildProjectDirectory = /home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Bina/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmluYVxDcmVhdGUuY3NodG1s
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Bina/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmluYVxEZWxldGUuY3NodG1s
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Bina/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmluYS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Bina/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmluYVxEZXRhaWxzLmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Bina/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmluYS9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Bina/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmluYVxFZGl0LmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Bina/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmluYS9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Bina/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmluYVxJbmRleC5jc2h0bWw=
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Bina/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmluYS9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Daire/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpcmVcQ3JlYXRlLmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Bina/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmluYS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Daire/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpcmVcRGVsZXRlLmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Daire/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpcmUvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Daire/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpcmVcRWRpdC5jc2h0bWw=
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Daire/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpcmUvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Daire/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpcmVcSW5kZXguY3NodG1s
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Daire/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpcmUvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Daire/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpcmUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/asp_proje/BinaDaireYonetim/BinaDaireYonetim/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-3y1gr9f6i2
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/Bina-Yonetim-Sistemi/Bina-Yonetim-Sistemi/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-mwmjmlhsey

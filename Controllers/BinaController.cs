@@ -1,10 +1,12 @@
-﻿using BinaDaireYonetim.Data;
+using BinaDaireYonetim.Data;
 using BinaDaireYonetim.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinaDaireYonetim.Controllers
 {
+    [Authorize]
     public class BinaController : Controller
     {
         private readonly ApplicationDbContext _context;
